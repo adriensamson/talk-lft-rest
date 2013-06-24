@@ -82,7 +82,7 @@
                                 <params>
                                     <param name="author">Adrien Samson</param>
                                     <param name="title">REST théorique</param>
-                                    <param name="session">2013-06-28</param>
+                                    <param name="session">2012-06-28</param>
                                 </params>
                             </lft>
                             ```
@@ -92,6 +92,30 @@
                             <lft>
                                 <error>false</error>
                                 <result><id>1</id></result>
+                            </lft>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft.php HTTP/1.1
+
+                            <lft>
+                                <action>update</action>
+                                <params>
+                                    <param name="id">1</param>
+                                    <param name="author">Adrien Samson</param>
+                                    <param name="title">REST théorique</param>
+                                    <param name="session">2013-06-28</param>
+                                </params>
+                            </lft>
+                            ```
+                            ```
+                            200 OK
+
+                            <lft>
+                                <error>false</error>
                             </lft>
                             ```
                         </script>
@@ -153,8 +177,87 @@
                 <section>
                     <section>
                         <h2>Niveau 1 : Ressources</h2>
-                        <p>
-                        </p>
+                        <p>Des URLs pour accéder aux ressources</p>
+                        <p>Une représentation par type de ressource</p>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft/talks/create HTTP/1.1
+
+                            <talk>
+                                <author>Adrien Samson</author>
+                                <title>REST théorique</title>
+                                <session>2012-06-28</session>
+                            </talk>
+                            ```
+                            ```
+                            200 OK
+
+                            <talk>
+                                <id>1</id>
+                                <author>Adrien Samson</author>
+                                <title>REST théorique</title>
+                                <session>2012-06-28</session>
+                            </talk>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft/talks/1/update HTTP/1.1
+
+                            <talk>
+                                <author>Adrien Samson</author>
+                                <title>REST théorique</title>
+                                <session>2013-06-28</session>
+                            </talk>
+                            ```
+                            ```
+                            200 OK
+
+                            <talk>
+                                <id>1</id>
+                                <author>Adrien Samson</author>
+                                <title>REST théorique</title>
+                                <session>2013-06-28</session>
+                            </talk>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            GET /lft/talks/list HTTP/1.1
+
+                            <talk_filters>
+                                <session>2013-06-28</session>
+                            </talk_filters>
+                            ```
+                            ```
+                            200 OK
+
+                            <talks>
+                                <talk>
+                                    <id>1</id>
+                                    <author>Adrien Samson</author>
+                                    <title>REST théorique</title>
+                                    <session>2013-06-28</session>
+                                </talk>
+                            </talks>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            GET /lft/talks/3 HTTP/1.1
+                            ```
+                            ```
+                            404 Not Found
+                            ```
+                        </script>
                     </section>
                 </section>
 
