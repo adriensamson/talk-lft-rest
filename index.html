@@ -2,22 +2,23 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"/>
+        <meta http-equiv="content-type" content="application/xhtml+xml"/>
 
         <title>REST - Partie théorique</title>
 
-        <meta name="author" content="Adrien Samson">
+        <meta name="author" content="Adrien Samson"/>
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-        <link rel="stylesheet" href="css/reveal.min.css">
-        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.min.css"/>
+        <link rel="stylesheet" href="css/theme/default.css" id="theme"/>
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="lib/css/zenburn.css"/>
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
@@ -69,8 +70,83 @@
                 <section>
                     <section>
                         <h2>Niveau 0 : HTTP</h2>
-                        <p>
-                        </p>
+                        <p>Utilisation du protocole HTTP</p>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft.php HTTP/1.1
+
+                            <lft>
+                                <action>create</action>
+                                <params>
+                                    <param name="author">Adrien Samson</param>
+                                    <param name="title">REST théorique</param>
+                                    <param name="session">2013-06-28</param>
+                                </params>
+                            </lft>
+                            ```
+                            ```
+                            200 OK
+
+                            <lft>
+                                <error>false</error>
+                                <result><id>1</id></result>
+                            </lft>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft.php HTTP/1.1
+
+                            <lft>
+                                <action>getList</action>
+                                <params>
+                                    <param name="session">2013-06-28</param>
+                                </params>
+                            </lft>
+                            ```
+                            ```
+                            200 OK
+
+                            <lft>
+                                <error>false</error>
+                                <result>
+                                    <list>
+                                        <item id="1">
+                                            <author>Adrien Samson</author>
+                                            <title>REST thétorique</title>
+                                            <session>2013-06-28</session>
+                                        </item>
+                                    </list>
+                                </result>
+                            </lft>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft.php HTTP/1.1
+
+                            <lft>
+                                <action>get</action>
+                                <params>
+                                    <param name="id">3</param>
+                                </params>
+                            </lft>
+                            ```
+                            ```
+                            200 OK
+
+                            <lft>
+                                <error>true</error>
+                                <errorMessage>Not found</errorMessage>
+                            </lft>
+                            ```
+                        </script>
                     </section>
                 </section>
                 
