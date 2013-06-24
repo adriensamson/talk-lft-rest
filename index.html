@@ -172,13 +172,36 @@
                             ```
                         </script>
                     </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft.php HTTP/1.1
+
+                            <lft>
+                                <action>delete</action>
+                                <params>
+                                    <param name="id">1</param>
+                                </params>
+                            </lft>
+                            ```
+                            ```
+                            200 OK
+
+                            <lft>
+                                <error>false</error>
+                            </lft>
+                            ```
+                        </script>
+                    </section>
                 </section>
                 
                 <section>
                     <section>
                         <h2>Niveau 1 : Ressources</h2>
-                        <p>Des URLs pour accéder aux ressources</p>
-                        <p>Une représentation par type de ressource</p>
+                        <ul>
+                            <li>Des URLs pour accéder aux ressources</li>
+                            <li>Une représentation par type de ressource</li>
+                        </ul>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
@@ -229,11 +252,7 @@
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            GET /lft/talks/list HTTP/1.1
-
-                            <talk_filters>
-                                <session>2013-06-28</session>
-                            </talk_filters>
+                            GET /lft/talks/list?session=2013-06-28 HTTP/1.1
                             ```
                             ```
                             200 OK
@@ -259,13 +278,96 @@
                             ```
                         </script>
                     </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft/talks/1/delete HTTP/1.1
+                            ```
+                            ```
+                            200 OK
+                            ```
+                        </script>
+                    </section>
                 </section>
 
                 <section>
                     <section>
                         <h2>Niveau 2 : Verbes HTTP</h2>
-                        <p>
-                        </p>
+                        <ul>
+                            <li>Utilisation des verbes GET, POST mais surtout DELETE, PUT et éventuellement PATCH</li>
+                            <li>Utilisation des codes de statut HTTP</li>
+                        </ul>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            POST /lft/talks HTTP/1.1
+
+                            <talk>
+                                <author>Adrien Samson</author>
+                                <title>REST théorique</title>
+                                <session>2012-06-28</session>
+                            </talk>
+                            ```
+                            ```
+                            201 Created
+                            Location: /lft/talks/1
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            PUT /lft/talks/1 HTTP/1.1
+
+                            <talk>
+                                <author>Adrien Samson</author>
+                                <title>REST théorique</title>
+                                <session>2013-06-28</session>
+                            </talk>
+                            ```
+                            ```
+                            204 OK No Content
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            GET /lft/talks?session=2013-06-28 HTTP/1.1
+                            ```
+                            ```
+                            200 OK
+
+                            <talks>
+                                <talk id="1">
+                                    <author>Adrien Samson</author>
+                                    <title>REST théorique</title>
+                                    <session>2013-06-28</session>
+                                </talk>
+                            </talks>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            GET /lft/talks/3 HTTP/1.1
+                            ```
+                            ```
+                            404 Not Found
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            DELETE /lft/talks/1 HTTP/1.1
+                            ```
+                            ```
+                            204 OK No content
+                            ```
+                        </script>
                     </section>
                 </section>
 
@@ -273,7 +375,55 @@
                     <section>
                         <h2>Niveau 3 : HATEOAS</h2>
                         <p>
+                            <strong>H</strong>ypermedia <strong>A</strong>s <strong>T</strong>he <strong>E</strong>ngine
+                            <strong>O</strong>f <strong>A</strong>pplication <strong>S</strong>tate
                         </p>
+                        <ul>
+                            <li>Des liens pour naviguer dans les ressources</li>
+                            <li>Pas besoin de lire une doc pour créer les URLs</li>
+                        </ul>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            GET /lft/talks HTTP/1.1
+                            ```
+                            ```
+                            200 OK
+
+                            <talks>
+                                <talk href="/lft/talks/1">
+                                    <author>Adrien Samson</author>
+                                    <title>REST théorique</title>
+                                    <session>2013-06-28</session>
+                                </talk>
+                                <!-- ... -->
+                                <link rel="next" href="/lft/talks?page=2" />
+                                <link rel="last" href="/lft/talks?page=10" />
+                            </talks>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ```
+                            GET /lft/talks HTTP/1.1
+                            ```
+                            ```
+                            200 OK
+
+                            <talks>
+                                <talk href="/lft/talks/1">
+                                    <author href="/lft/authors/asamson">Adrien Samson</author>
+                                    <title>REST théorique</title>
+                                    <session href="/lft/talks?session=2013-06-28">2013-06-28</session>
+                                </talk>
+                                <!-- ... -->
+                                <link rel="next" href="/lft/talks?page=2" />
+                                <link rel="last" href="/lft/talks?page=10" />
+                            </talks>
+                            ```
+                        </script>
                     </section>
                 </section>
 
