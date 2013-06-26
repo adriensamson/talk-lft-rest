@@ -90,7 +90,7 @@
                             </lft>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <lft>
                                 <error>false</error>
@@ -115,7 +115,7 @@
                             </lft>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <lft>
                                 <error>false</error>
@@ -136,7 +136,7 @@
                             </lft>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <lft>
                                 <error>false</error>
@@ -166,7 +166,7 @@
                             </lft>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <lft>
                                 <error>true</error>
@@ -188,7 +188,7 @@
                             </lft>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <lft>
                                 <error>false</error>
@@ -218,7 +218,7 @@
                             </talk>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <talk>
                                 <id>1</id>
@@ -241,7 +241,7 @@
                             </talk>
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <talk>
                                 <id>1</id>
@@ -258,7 +258,7 @@
                             GET /lft/talks/list?session=2013-06-28 HTTP/1.1
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <talks>
                                 <talk>
@@ -287,7 +287,7 @@
                             POST /lft/talks/1/delete HTTP/1.1
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
                             ```
                         </script>
                     </section>
@@ -313,7 +313,7 @@
                             </talk>
                             ```
                             ```
-                            201 Created
+                            HTTP/1.1 201 Created
                             Location: /lft/talks/1
                             ```
                         </script>
@@ -330,7 +330,7 @@
                             </talk>
                             ```
                             ```
-                            204 OK No Content
+                            HTTP/1.1 204 OK No Content
                             ```
                         </script>
                     </section>
@@ -340,7 +340,7 @@
                             GET /lft/talks?session=2013-06-28 HTTP/1.1
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <talks>
                                 <talk id="1">
@@ -358,7 +358,7 @@
                             GET /lft/talks/3 HTTP/1.1
                             ```
                             ```
-                            404 Not Found
+                            HTTP/1.1 404 Not Found
                             ```
                         </script>
                     </section>
@@ -368,7 +368,7 @@
                             DELETE /lft/talks/1 HTTP/1.1
                             ```
                             ```
-                            204 OK No content
+                            HTTP/1.1 204 OK No content
                             ```
                         </script>
                     </section>
@@ -392,7 +392,7 @@
                             GET /lft/talks HTTP/1.1
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <talks>
                                 <talk href="/lft/talks/1">
@@ -413,7 +413,7 @@
                             GET /lft/talks HTTP/1.1
                             ```
                             ```
-                            200 OK
+                            HTTP/1.1 200 OK
 
                             <talks>
                                 <talk href="/lft/talks/1">
