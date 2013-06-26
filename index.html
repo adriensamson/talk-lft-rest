@@ -77,6 +77,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Création
                             ```
                             POST /lft.php HTTP/1.1
 
@@ -101,6 +102,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Mise à jour
                             ```
                             POST /lft.php HTTP/1.1
 
@@ -125,6 +127,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Liste
                             ```
                             POST /lft.php HTTP/1.1
 
@@ -155,6 +158,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Détail
                             ```
                             POST /lft.php HTTP/1.1
 
@@ -177,6 +181,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Suppression
                             ```
                             POST /lft.php HTTP/1.1
 
@@ -208,6 +213,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Création
                             ```
                             POST /lft/talks/create HTTP/1.1
 
@@ -231,6 +237,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Mise à jour
                             ```
                             POST /lft/talks/1/update HTTP/1.1
 
@@ -254,6 +261,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Liste
                             ```
                             GET /lft/talks/list?session=2013-06-28 HTTP/1.1
                             ```
@@ -273,6 +281,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Détail
                             ```
                             GET /lft/talks/3 HTTP/1.1
                             ```
@@ -283,6 +292,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Suppression
                             ```
                             POST /lft/talks/1/delete HTTP/1.1
                             ```
@@ -303,6 +313,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Création
                             ```
                             POST /lft/talks HTTP/1.1
 
@@ -320,6 +331,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Mise à jour
                             ```
                             PUT /lft/talks/1 HTTP/1.1
 
@@ -336,6 +348,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Liste
                             ```
                             GET /lft/talks?session=2013-06-28 HTTP/1.1
                             ```
@@ -354,6 +367,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Détail
                             ```
                             GET /lft/talks/3 HTTP/1.1
                             ```
@@ -364,6 +378,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Suppression
                             ```
                             DELETE /lft/talks/1 HTTP/1.1
                             ```
@@ -388,6 +403,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Liste
                             ```
                             GET /lft/talks HTTP/1.1
                             ```
@@ -409,6 +425,7 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Détail
                             ```
                             GET /lft/talks HTTP/1.1
                             ```
@@ -480,12 +497,21 @@
                     </section>
                 </section>
                 <section>
-                    <h2>En conclusion</h2>
-                    <ul>
-                        <li>Roy Fielding définit HATEOAS comme nécessaire dans REST</li>
-                        <li>Dans la vraie vie, on peut s'en passer si on écrit une vraie doc</li>
-                        <li>Verbes et codes statuts HTTP</li>
-                    </ul>
+                    <section>
+                        <h2>En conclusion</h2>
+                        <ul>
+                            <li>Roy Fielding définit HATEOAS comme nécessaire dans REST</li>
+                            <li>Mais on ne va pas souvent aussi loin</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>L'important</h2>
+                        <ul>
+                            <li>Des belles URL <q>/choses</q> et <q>/choses/{id}</q></li>
+                            <li>Verbes HTTP</li>
+                            <li>Codes de statut HTTP</li>
+                        </ul>
+                    </section>
                 </section>
                 <section>
                     <h2>Biblio</h2>
