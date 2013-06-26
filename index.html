@@ -28,6 +28,9 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+        <style>
+            strong {color: #13DAEC;}
+        </style>
     </head>
 
     <body>
@@ -426,7 +429,73 @@
                         </script>
                     </section>
                 </section>
+                <section>
+                    <section>
+                        <h2>rel= ?</h2>
+                        <h3>Liens standards</h3>
+                        <ul>
+                            <li><q>self</q></li>
+                            <li><q>next</q>, <q>previous</q>, <q>first</q>, <q>last</q></li>
+                            <li><q>author</q>, <q>copyright</q>, <q>license</q></li>
+                            <li>Beaucoup d'autres…</li>
+                        </ul>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Netflix API
 
+                            ```
+                            <link
+                                href="http://api-public.netflix.com/catalog/titles/series/70023522/cast"
+                                rel="http://schemas.netflix.com/catalog/people" title="cast">
+                                <cast>
+                                    <link href="http://api-public.netflix.com/catalog/people/30011713"
+                                          rel="http://schemas.netflix.com/catalog/person"
+                                          title="Steve Carell"/>
+                                    <link href="http://api-public.netflix.com/catalog/people/30014922"
+                                          rel="http://schemas.netflix.com/catalog/person"
+                                          title="John Krasinski"/>
+                                    <link href="http://api-public.netflix.com/catalog/people/20047634"
+                                          rel="http://schemas.netflix.com/catalog/person"
+                                          title="Jenna Fischer"/>
+                                </cast>
+                            </link>
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### JSON-LD / Hydra
+                            ```
+                            {
+                                "@context": {
+                                    "comments": "http://api.example.com/vocab#comments"
+                                },
+                                "@id": "http://api.example.com/an-issue",
+                                "title": "An exemplary issue linking to its comments",
+                                "comments": { "@id": "http://api.example.com/an-issue/comments" }
+                            }
+                            ```
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <h2>En conclusion</h2>
+                    <ul>
+                        <li>Roy Fielding définit HATEOAS comme nécessaire dans REST</li>
+                        <li>Dans la vraie vie, on peut s'en passer si on écrit une vraie doc</li>
+                        <li>Verbes et codes statuts HTTP</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Biblio</h2>
+                    <ul>
+                        <li><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">La thèse de Roy Fielding</a></li>
+                        <li><a href="http://fr.slideshare.net/dnene/rest-representational-state-transfer-explained">REST Explained</a> en 192 slides et en anglais</li>
+                        <li><a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a> par Martin Fowler</li>
+                        <li><a href="http://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA Link Relations</a></li>
+                    </ul>
+                </section>
             </div>
 
         </div>
