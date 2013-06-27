@@ -52,16 +52,17 @@
                             <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer
                         </p>
                         <ul>
-                            <li>Une architecture (pas un protocole)</li>
+                            <li>Une architecture, pas un protocole</li>
                             <li>Théorisé par Roy Fielding</li>
                             <li>
                                 Des contraintes :
                                 <ol>
                                     <li>Client - Serveur</li>
                                     <li>Stateless</li>
-                                    <li>Cachabilité</li>
+                                    <li>Cachabilité spécifiée</li>
                                     <li>Interface uniforme</li>
-                                    <li>Layered</li>
+                                    <li>Layered system, modulaire</li>
+                                    <li>Code on demand (facultative)</li>
                                 </ol>
                             </li>
                         </ul>
@@ -70,10 +71,21 @@
                         <h2>Pourquoi ?</h2>
                         <ul>
                             <li>Utilisation des standards (HTTP, JSON, …)</li>
-                            <li>Interface abstraite</li>
+                            <li>Interface indépendante de l'implémentation</li>
                             <li>Découplage des services</li>
-                            <li>Plateformisation</li>
                         </ul>
+                        <p>
+                            <br/>
+                        </p>
+                        <h3 class="fragment">Plateformisation</h3>
+                    </section>
+                    <section>
+                        <h2>Modèle de maturité</h2>
+                        <p>
+                            4 niveaux de maturité définis par Leonard Richardson<br/>
+                            = 4 étapes pour atteindre la gloire du REST
+                        </p>
+
                     </section>
                 </section>
 
@@ -508,15 +520,16 @@
                         <h2>En conclusion</h2>
                         <ul>
                             <li>Roy Fielding définit HATEOAS comme nécessaire dans REST</li>
-                            <li>Mais on ne va pas souvent aussi loin</li>
+                            <li>Mais on ne va pas toujours aussi loin</li>
                         </ul>
                     </section>
                     <section>
                         <h2>L'important</h2>
                         <ul>
-                            <li>Des belles URL <q>/choses</q> et <q>/choses/{id}</q></li>
+                            <li>De belles URL <q>/choses</q> et <q>/choses/{id}</q></li>
                             <li>Verbes HTTP</li>
                             <li>Codes de statut HTTP</li>
+                            <li>JSON ou XML</li>
                         </ul>
                     </section>
                 </section>
